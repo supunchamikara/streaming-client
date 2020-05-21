@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 
 import StreamCreate from "./components/streams/stream-create.component";
 import StreamEdit from "./components/streams/stream-edit.component";
@@ -9,11 +9,12 @@ import StreamList from "./components/streams/stream-list.component";
 import StreamShow from "./components/streams/stream-show.component";
 
 import Header from "./components/header/header.component";
+import history from "./history";
 
 function App() {
   return (
     <div className="ui container">
-      <BrowserRouter>
+      <Router history={history}>
         <div>
           <Header />
           <Route path="/" exact component={StreamList} />
@@ -22,7 +23,7 @@ function App() {
           <Route path="/streams/delete" exact component={StreamDelete} />
           <Route path="/streams/show" exact component={StreamShow} />
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
